@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "useUnknownInCatchVariables": false,
+    "paths": {
+      /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
+      "@/*": ["*"]
+    },
+    "baseUrl": ".",
+    "rootDir": ".",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "removeComments": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "utils/types/transak-sdk",
+    "blockchain.js",
+    "pages/api/prizes",
+    "utils/providers/chainlinkVRF.tsx"
+  ],
+  "exclude": ["node_modules", "dist", "coverage"]
+}

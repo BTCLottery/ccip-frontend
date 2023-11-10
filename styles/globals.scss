@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.pattern-bg {
+  background-color: #330055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23330055' cx='50' cy='0' r='50'/%3E%3Cg fill='%233a015d' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%23410165' cx='50' cy='100' r='50'/%3E%3Cg fill='%2348026e' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23500376' cx='50' cy='200' r='50'/%3E%3Cg fill='%2357047e' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%235f0587' cx='50' cy='300' r='50'/%3E%3Cg fill='%2367068f' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%236f0798' cx='50' cy='400' r='50'/%3E%3Cg fill='%237707a0' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%238008a9' cx='50' cy='500' r='50'/%3E%3Cg fill='%238909b1' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%239109ba' cx='50' cy='600' r='50'/%3E%3Cg fill='%239a09c3' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a309cb' cx='50' cy='700' r='50'/%3E%3Cg fill='%23ad09d4' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b608dc' cx='50' cy='800' r='50'/%3E%3Cg fill='%23c007e5' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c905ee' cx='50' cy='900' r='50'/%3E%3Cg fill='%23d303f6' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23D0F' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+.__react_component_tooltip {
+  background: #328946 !important;
+  border-radius: 90px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #fff !important;
+
+  &::after {
+    border-top-color: #328946 !important;
+  }
+}
+
+.Toastify__toast-container--top-right {
+  top: 6em;
+}
+
+.Toastify__toast {
+  border-radius: 20px;
+  font-family: 'Poppins';
+  font-size: 19px;
+  font-weight: 500;
+  padding: 17px 20px;
+  position: relative;
+  overflow: visible !important;
+  color: white;
+
+  p {
+    margin: 0;
+  }
+
+  &.Toastify__toast--success {
+    background: #328946;
+  }
+
+  &.Toastify__toast--error {
+    background: #411b79;
+  }
+
+  &.Toastify__toast--info {
+    background: #411b79;
+  }
+
+  .Toastify__toast-body {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+
+    .Toastify__toast-icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    .Toastify__toast-submsg {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  .Toastify__close-button {
+    position: absolute;
+    right: 7px;
+    top: -5px;
+    transform: translate(30%, -30%);
+    background: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: visible;
+    opacity: 1;
+    color: #000;
+  }
+
+  @media (max-width: 480px) {
+    .Toastify__close-button {
+      right: 10px;
+      top: 7px;
+      width: 17px;
+      height: 17px;
+    }
+    .Toastify__close-button > svg {
+      width: 18px !important;
+    }
+  }
+
+  .Toastify__close-button > svg {
+    fill: currentColor;
+    height: 15px;
+    width: 27px;
+  }
+}
+
+body {
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+#ecosystem,
+#smartcontract,
+#free,
+#atomicswap,
+#cryptobonus,
+#voting {
+  margin: 0 auto;
+  height: 150px;
+  width: 150px;
+}
+
+#navBar,
+#footer {
+  background: linear-gradient(
+    70deg,
+    rgb(37, 3, 64) 10%,
+    rgb(72, 20, 123) 40%,
+    rgb(57, 3, 97) 60%,
+    rgb(37, 3, 64) 75%,
+    rgb(37, 3, 64) 100%
+  );
+  border-bottom: 2px solid #491d7f;
+}
+
+#leftSideBar {
+  background: linear-gradient(
+    0deg,
+    rgb(37, 3, 64) 10%,
+    rgb(72, 20, 123) 40%,
+    rgb(57, 3, 97) 60%,
+    rgb(37, 3, 64) 85%,
+    rgb(37, 3, 64) 100%
+  );
+  border-bottom: 2px solid #491d7f;
+}
+
+/* CROSSMINT */
+
+button.myCrossmintButton {
+  background: linear-gradient(-30deg, #9023e0 50%, #7917c0 50%);
+  font-weight: 500;
+}
+
+img.myCrossmintButton {
+  display: none;
+}
+
+.myCrossmintButton::part(contentParagraph) {
+  color: white;
+  font-size: 1.25rem;
+}
+
+img.crossmintImg-0-2-2 {
+  display: none;
+}
+
+/* CROSSMINT */
+
+@media (max-width: 768px) {
+  #dynamicGame {
+    zoom: 83%;
+  }
+  #lotteryHeader {
+    margin-top: 30px;
+  }
+  .Toastify__toast-container--top-center, .Toastify__toast-container--top-left, .Toastify__toast-container--top-right {
+    zoom: 100%;
+  }
+}
+
+
+/* BLOCKNATIVE */
+
+:root {
+    /* CUSTOMIZE THE COLOR  PALLETTE */
+    --onboard-white: white;
+    --onboard-black: black;
+    --onboard-primary-1: #2f80ed;
+    --onboard-primary-100: #eff1fc;
+    --onboard-primary-200: #d0d4f7;
+    --onboard-primary-300: #b1b8f2;
+    --onboard-primary-400: #929bed;
+    --onboard-primary-500: #6370e5;
+    --onboard-primary-600: #454ea0;
+    --onboard-primary-700: #323873;
+    --onboard-gray-100: #ebebed;
+    --onboard-gray-200: #c2c4c9;
+    --onboard-gray-300: #999ca5;
+    --onboard-gray-400: #707481;
+    --onboard-gray-500: #33394b;
+    --onboard-gray-600: #242835;
+    --onboard-gray-700: #1a1d26;
+    --onboard-success-100: #d1fae3;
+    --onboard-success-200: #baf7d5;
+    --onboard-success-300: #a4f4c6;
+    --onboard-success-400: #8df2b8;
+    --onboard-success-500: #5aec99;
+    --onboard-success-600: #18ce66;
+    --onboard-success-700: #129b4d;
+    --onboard-danger-100: #ffe5e6;
+    --onboard-danger-200: #ffcccc;
+    --onboard-danger-300: #ffb3b3;
+    --onboard-danger-400: #ff8080;
+    --onboard-danger-500: #ff4f4f;
+    --onboard-danger-600: #cc0000;
+    --onboard-danger-700: #660000;
+    --onboard-warning-100: #ffefcc;
+    --onboard-warning-200: #ffe7b3;
+    --onboard-warning-300: #ffd780;
+    --onboard-warning-400: #ffc74c;
+    --onboard-warning-500: #ffaf00;
+    --onboard-warning-600: #cc8c00;
+    --onboard-warning-700: #664600;
+  
+    /* CUSTOMIZE ACCOUNT CENTER*/
+    /* --account-center-z-index
+    --account-center-position-top
+    --account-center-position-bottom
+    --account-center-position-right
+    --account-center-position-left
+    --account-center-minimized-background
+    --account-center-maximized-upper-background
+    --account-center-maximized-network-section
+    --account-center-maximized-app-info-section
+    --account-center-minimized-address-color
+    --account-center-maximized-address-color
+    --account-center-maximized-account-section-background-hover
+    --account-center-maximized-action-background-hover
+    --account-center-minimized-chain-select-background
+    --account-center-network-selector-color
+    --account-center-maximized-network-selector-color
+    --account-center-minimized-network-selector-color
+    --account-center-app-btn-text-color
+    --account-center-app-btn-background
+    --account-center-app-btn-font-family
+  
+    --account-center-border
+    --account-center-box-shadow
+    --account-center-border-radius
+    --account-center-chain-warning
+    --account-center-minimized-balance-color
+    --account-center-minimized-chain-select-background
+  
+    --account-center-maximized-network-section-background
+    --account-center-maximized-network-text-color
+    --account-center-maximized-info-section-background-color
+    --account-center-maximized-upper-action-color
+    --account-center-maximized-upper-action-background-hover
+    --account-center-maximized-app-name-color
+    --account-center-maximized-app-info-color
+  
+    --account-center-micro-background */
+  
+    /* CUSTOMIZE SECTIONS OF THE CONNECT MODAL */
+    /* --onboard-connect-content-width
+    --onboard-connect-content-height
+    --onboard-wallet-columns
+    --onboard-connect-sidebar-border-color
+    --onboard-connect-sidebar-color
+    --onboard-connect-sidebar-progress-background
+    --onboard-connect-sidebar-progress-color
+    --onboard-connect-header-background
+    --onboard-connect-header-color
+    --onboard-link-color
+    --onboard-close-button-background
+    --onboard-close-button-color
+    --onboard-checkbox-background
+    --onboard-checkbox-color
+    --onboard-wallet-button-color
+    --onboard-wallet-button-border-color
+    --onboard-wallet-button-border-radius
+    --onboard-wallet-button-box-shadow
+    --onboard-wallet-button-box-shadow-hover
+    --onboard-wallet-app-icon-border-color */
+
+    /* Sidebar */
+    --onboard-connect-sidebar-background: #1d0735;
+
+    /* Background */
+    --onboard-main-scroll-container-background: #552393;
+    
+    /* Wallet Button */
+    --onboard-wallet-button-background: #1d0735;
+    --onboard-wallet-button-background-hover: #f7a73c;
+    --onboard-wallet-button-color-hover: #1d0735;
+
+    --onboard-wallet-app-icon-background-transparent: #1d0735;
+
+    /* V3 */
+    --w3o-background-color: #552393;
+    --w3o-foreground-color: #1d0735;
+    --w3o-text-color: unset;
+    --w3o-border-color: unset;
+    --w3o-action-color: unset;
+    --w3o-border-radius: unset;
+    --w3o-font-family: unset;
+    /* --w3o-border-radius: 16px; */
+  
+    /* CUSTOMIZE THE SHARED MODAL */
+    /* 
+    --onboard-modal-color */
+    --onboard-modal-background: #1D0435;
+    --background-color: #1D0435;
+
+    /* CUSTOMIZE THE CONNECT MODAL */
+    /* --onboard-modal-border-radius
+    --onboard-modal-backdrop
+    --onboard-modal-box-shadow */
+  
+    /* CUSTOMIZE THE ACTION REQUIRED MODAL */
+    /* --onboard-action-required-modal-background
+    --onboard-action-required-text-color
+    --onboard-action-required-btn-text-color */
+
+    /* FONTS */
+    --onboard-font-family-normal: Roboto;
+    --onboard-font-family-semibold: Roboto;
+    --onboard-font-family-light: Roboto;
+  
+    --onboard-font-size-1: 3rem;
+    --onboard-font-size-2: 2.25rem;
+    --onboard-font-size-3: 1.5rem;
+    --onboard-font-size-4: 1.25rem;
+    --onboard-font-size-5: 1rem;
+    --onboard-font-size-6: 0.875rem;
+    --onboard-font-size-7: 0.75rem;
+  
+    /* SPACING */
+    --onboard-spacing-1: 3rem;
+    --onboard-spacing-2: 2rem;
+    --onboard-spacing-3: 1.5rem;
+    --onboard-spacing-4: 1rem;
+    --onboard-spacing-5: 0.5rem;
+  
+    /* BORDER RADIUS */
+    --onboard-border-radius-1: 24px;
+    --onboard-border-radius-2: 20px;
+    --onboard-border-radius-3: 16px;
+    --onboard-border-radius-4: 12px;
+  
+    /* SHADOWS */
+    --onboard-shadow-0: none;
+    --onboard-shadow-1: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    --onboard-shadow-2: inset 0px -1px 0px rgba(0, 0, 0, 0.1);
+  
+    /* MAIN MODAL POSITIONING */
+    /* --onboard-modal-z-index
+    --onboard-modal-top
+    --onboard-modal-bottom
+    --onboard-modal-right
+    --onboard-modal-left */
+  
+    /* HD WALLET ACCOUNT SELECT MODAL POSITIONING */
+    /* --onboard-account-select-modal-z-index
+    --onboard-account-select-modal-top
+    --onboard-account-select-modal-bottom
+    --onboard-account-select-modal-right
+    --onboard-account-select-modal-left */
+  
+    /* MAGIC WALLET MODAL POSITIONING */
+    /* --onboard-login-modal-z-index
+    --onboard-login-modal-top
+    --onboard-login-modal-bottom
+    --onboard-login-modal-right
+    --onboard-login-modal-left */
+  
+  
+    /* HARDWARE WALLET STYLES  */
+    /* *if not set will fallback to variables with `--onboard` prefix shown above */
+  
+    /* COLORS */
+    --account-select-modal-white: white;
+    --account-select-modal-black: black;
+    --account-select-modal-primary-100: #eff1fc;
+    --account-select-modal-primary-200: #d0d4f7;
+    --account-select-modal-primary-300: #b1b8f2;
+    --account-select-modal-primary-500: #6370e5;
+    --account-select-modal-primary-600: #454ea0;
+    --account-select-modal-gray-100: #ebebed;
+    --account-select-modal-gray-200: #c2c4c9;
+    --account-select-modal-gray-300: #999ca5;
+    --account-select-modal-gray-500: #33394b;
+    --account-select-modal-gray-700: #1a1d26;
+    --account-select-modal-danger-500: #ff4f4f;
+  
+    /* FONTS */
+    --account-select-modal-font-family-normal: Roboto;
+    --account-select-modal-font-family-light: Roboto;
+    --account-select-modal-font-size-5: 1rem;
+    --account-select-modal-font-size-7: .75rem;
+    --account-select-modal-font-line-height-1: 24px;
+  
+    /* SPACING */
+    --account-select-modal-margin-4: 1rem;
+    --account-select-modal-margin-5: 0.5rem;
+  
+    /* NOTIFY STYLES */
+    /* Notify Positioning variables only take effect if Notify is Positioned separate of Account Center */
+    /* --notify-onboard-container-position-top
+    --notify-onboard-container-position-bottom
+    --notify-onboard-container-position-right
+    --notify-onboard-container-position-left
+    --notify-onboard-font-family-normal
+    --notify-onboard-font-size-5
+    --notify-onboard-gray-300
+    --notify-onboard-gray-600
+    --notify-onboard-border-radius
+    --notify-onboard-font-size-7
+    --notify-onboard-font-size-6
+    --notify-onboard-line-height-4
+    --notify-onboard-primary-100
+    --notify-onboard-primary-400
+    --notify-onboard-main-padding
+  
+    --notify-onboard-z-index
+    --notify-onboard-background
+    --notify-onboard-close-icon-color
+    --notify-onboard-close-icon-hover
+    --notify-onboard-transaction-status-color
+    --notify-onboard-transaction-font-size
+    --notify-onboard-hash-time-font-size
+    --notify-onboard-hash-time-font-line-height
+    --notify-onboard-address-hash-color
+    --notify-onboard-anchor-color */
+  }
+
+/* BLOCKNATIVE */
