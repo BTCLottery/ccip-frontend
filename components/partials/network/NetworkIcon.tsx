@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getNetworkImage } from '@/utils/constants/networks';
+import { getNetworkImage } from '@/constants/networks';
 
 type NetworkIconImage = {
   chainId: string;

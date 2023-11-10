@@ -1,30 +1,11 @@
 import { createGlobalState } from 'react-hooks-global-state';
-import { Socket } from 'socket.io-client';
 import { BigNumber } from 'ethers';
-import { TokenBalances } from '@/utils/types/balances';
-import { IS_LOCAL } from '@/utils/constants/networks';
-
-export type CCIPConfig = {
-  fromNetwork: string;
-  toNetwork: string;
-  destinationAccount: string;
-  tokenAddress: string;
-  amount: BigNumber;
-  feeTokenAddress: string;
-};
-
-export type GlobalTypes = {
-  isLoading: boolean;
-  sideNavMenuOpen: boolean;
-  updateBalances: boolean;
-  globalSocket: Socket | null;
-  balances: TokenBalances;
-  ccipConfig: CCIPConfig;
-};
+import { IS_LOCAL } from '@/constants/networks';
+import { GlobalTypes } from '@/utils/types/store';
 
 const { useGlobalState } = createGlobalState<GlobalTypes>({
   isLoading: true,
-  globalSocket: null,
+  sideNavMenuOpen: false,
   updateBalances: false,
   balances: {
     nativeCoin: '0',
@@ -35,10 +16,11 @@ const { useGlobalState } = createGlobalState<GlobalTypes>({
     link: '0',
     btclp: '0'
   },
-  sideNavMenuOpen: false,
-  ccipConfig: {
-    fromNetwork: IS_LOCAL ? 'ethereumSepolia' : 'ethereumMainnet',
-    toNetwork: IS_LOCAL ? 'polygonMumbai' : 'polygonMainnet',
+  // CCIP ROUTES
+  fromNetwork: IS_LOCAL ? 'ethereumSepolia' : 'ethereumMainnet',
+  toNetwork: IS_LOCAL ? 'polygonMumbai' : 'polygonMainnet',
+  // CCIP MESSAGE
+  ccipStore: {
     destinationAccount: '',
     tokenAddress: '',
     amount: BigNumber.from(0),

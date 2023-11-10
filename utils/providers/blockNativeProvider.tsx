@@ -31,7 +31,7 @@ import {
   TrezorOptions,
 } from '@/utils/types/wallet';
 import blocknativeIcon from '@/public/icons/BTCLP-White-Logo';
-import { IS_LOCAL } from '@/utils/constants/networks';
+import { IS_LOCAL } from '@/constants/networks';
 
 const coinbase = coinbaseModule({ darkMode: true } as CoinbaseWalletOptions);
 

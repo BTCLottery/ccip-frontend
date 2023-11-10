@@ -1,7 +1,7 @@
 import { ReactElement, useEffect } from 'react';
 import { useAppState } from '@web3-onboard/react';
 import { useWindowSize, useCopyToClipboard } from 'usehooks-ts';
-import { IS_LOCAL } from '@/utils/constants/networks';
+import { IS_LOCAL } from '@/constants/networks';
 import Image from 'next/image';
 import helpers from '@/utils/helpers';
 import useWallet from '@/hooks/useWallet';

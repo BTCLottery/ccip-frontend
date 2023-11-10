@@ -7,7 +7,7 @@ import {
   LotteryRoundStatus,
   LotteryWinnerStatus,
 } from '@/utils/types/history';
-import { NETWORK_CHAINID } from '@/utils/constants/networks';
+import { NETWORK_CHAINID } from '@/constants/networks';
 import useGlobalState from '@/store/globalState';
 
 const ServicesSocketData = ({ lotteryAddress }: LotteryAddress) => {

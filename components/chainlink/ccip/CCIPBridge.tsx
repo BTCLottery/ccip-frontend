@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ethers } from 'ethers';
-import { IS_LOCAL } from '@/utils/constants/networks';
+import { IS_LOCAL } from '@/constants/networks';
 import { useDebounce } from 'use-debounce';
 import useWallet from '@/hooks/useWallet';
 import ccipRouterConfig, {
@@ -72,12 +72,15 @@ export default function CCIPBridge() {
 
   const [debouncedAmount] = useDebounce(amount, 500); // 500ms delay
 
-  const [fromNetwork, setFromNetwork] = useState<string>(
-    IS_LOCAL ? 'ethereumSepolia' : 'ethereumMainnet'
-  );
-  const [toNetwork, setToNetwork] = useState<string>(
-    IS_LOCAL ? 'polygonMumbai' : 'polygonMainnet'
-  );
+  const [fromNetwork, setFromNetwork] = useGlobalState('fromNetwork');
+  const [toNetwork, setToNetwork] = useGlobalState('toNetwork');
+
+  // const [fromNetwork, setFromNetwork] = useState<string>(
+  //   IS_LOCAL ? 'ethereumSepolia' : 'ethereumMainnet'
+  // );
+  // const [toNetwork, setToNetwork] = useState<string>(
+  //   IS_LOCAL ? 'polygonMumbai' : 'polygonMainnet'
+  // );
 
   useEffect(() => {
     if(connectedChain) {

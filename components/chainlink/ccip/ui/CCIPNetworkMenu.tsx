@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
-import { IS_LOCAL } from '@/utils/constants/networks';
+import { IS_LOCAL } from '@/constants/networks';
 import CCIPProviderIcon from './CCIPProviderIcon';
 import ccipRouterConfig from '@/utils/providers/chainlink/ccip/config/router';
 

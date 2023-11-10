@@ -1,4 +1,4 @@
-import { IS_LOCAL } from '@/utils/constants/networks';
+import { IS_LOCAL } from '@/constants/networks';
 
 const supportedNetworks = [
   'ethereumMainnet',
