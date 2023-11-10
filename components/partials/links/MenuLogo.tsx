@@ -9,9 +9,10 @@ export default function MenuLogo(): ReactElement {
     <Link href="/" className="flex">
       <div className="relative">
         <Image
-          src="/icons/BTCLottery-Logo.svg"
+          // could use chainlink svg here, but png has transparency
+          src="/images/chainlink-png/Chainlink-Logo-White.png"
           className="pointer-events-none border-coolBackgroundShade1"
-          alt="Bitcoin Lottery Logo"
+          alt="Chainlink Logo"
           width={238}
           height={40}
           // sizes={ width < 580 ? '150px' : '238px' }

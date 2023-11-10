@@ -5,7 +5,6 @@ fonts and colors here
 #375bd2
 CMYK 82 67 0 0
 
-
 **Text color**
 Mirage
 #0c162c
@@ -13,3 +12,6 @@ Mirage
 **Header color**
 Lavender
 #dfe7fb
+
+White
+#ffffff
