@@ -53,7 +53,8 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
     // console.log('networkLanes', networkLanes)
     // console.log('fromTo', fromTo)
     // console.log('networkArray', networkArray)
-    const filteredArray: string[] = fromTo === 'To' ? networkLanes : networkArray;
+    const filteredArray: string[] =
+      fromTo === 'To' ? networkLanes : networkArray;
     // console.log('filteredArray', filteredArray)
     return filteredArray.map((network, i) => (
       <div

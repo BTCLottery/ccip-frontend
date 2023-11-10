@@ -3,49 +3,49 @@ const getChainsByID = (network: string) => {
 
   switch (network) {
     case '0x1':
-      chainID ='ethereumMainnet'
+      chainID = 'ethereumMainnet';
       break;
     case '0xaa36a7':
-      chainID = 'ethereumSepolia'
+      chainID = 'ethereumSepolia';
       break;
     case '0x5':
-      chainID ='ethereumGoerli'
+      chainID = 'ethereumGoerli';
       break;
     case '0x2105':
-      chainID = 'baseMainnet'
+      chainID = 'baseMainnet';
       break;
     case '0x14a33':
-      chainID = 'baseGoerli'
+      chainID = 'baseGoerli';
       break;
     case '0xa':
-      chainID = 'optimismMainnet'
+      chainID = 'optimismMainnet';
       break;
     case '0x1a4':
-      chainID = 'optimismGoerli'
+      chainID = 'optimismGoerli';
       break;
     case '0xa4b1':
-      chainID = 'arbitrumMainnet'
+      chainID = 'arbitrumMainnet';
       break;
     case '0x66eed':
-      chainID = 'arbitrumGoerli'
+      chainID = 'arbitrumGoerli';
       break;
     case '0xa86a':
-      chainID = 'avalancheMainnet'
+      chainID = 'avalancheMainnet';
       break;
     case '0xa869':
-      chainID = 'avalancheFuji'
+      chainID = 'avalancheFuji';
       break;
     case '0x89':
-      chainID = 'polygonMainnet'
+      chainID = 'polygonMainnet';
       break;
     case '0x13881':
-      chainID = 'polygonMumbai'
+      chainID = 'polygonMumbai';
       break;
     case '0x38':
-      chainID = 'binanceMainnet'
+      chainID = 'binanceMainnet';
       break;
     case '0x61':
-      chainID = 'binanceTestnet'
+      chainID = 'binanceTestnet';
       break;
     default:
       console.log(`Unknown network: ${network}`);

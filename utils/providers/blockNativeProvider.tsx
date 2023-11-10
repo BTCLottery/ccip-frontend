@@ -156,7 +156,7 @@ const mainnetChains = [
     token: 'BASE',
     label: 'Base',
     rpcUrl: 'https://base.meowrpc.com',
-  }
+  },
 ];
 
 const testnetChains = [

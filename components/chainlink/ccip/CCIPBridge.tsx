@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ethers } from 'ethers';
-import { IS_LOCAL } from '@/constants/networks';
 import { useDebounce } from 'use-debounce';
+import { IS_LOCAL } from '@/constants/networks';
 import useWallet from '@/hooks/useWallet';
 import ccipRouterConfig, {
   FeeTokens,
@@ -60,8 +60,10 @@ import getChainsByID from '@/utils/providers/chainlink/ccip/config/chainsByID';
 export default function CCIPBridge() {
   const { ethersProvider, account, connectedChain } = useWallet();
   const [updateBalances, setUpdateBalances] = useGlobalState('updateBalances');
-
   const [balances] = useGlobalState('balances');
+  const [fromNetwork, setFromNetwork] = useGlobalState('fromNetwork');
+  const [toNetwork, setToNetwork] = useGlobalState('toNetwork');
+
   const [generatedMessage, setMessage] = useState<Message>();
   const [feeTokens, setFeeTokens] = useState<FeeTokens>();
   const [selectedFeeToken, setSelectedFeeToken] = useState<string>('');
@@ -72,9 +74,6 @@ export default function CCIPBridge() {
 
   const [debouncedAmount] = useDebounce(amount, 500); // 500ms delay
 
-  const [fromNetwork, setFromNetwork] = useGlobalState('fromNetwork');
-  const [toNetwork, setToNetwork] = useGlobalState('toNetwork');
-
   // const [fromNetwork, setFromNetwork] = useState<string>(
   //   IS_LOCAL ? 'ethereumSepolia' : 'ethereumMainnet'
   // );
@@ -83,10 +82,10 @@ export default function CCIPBridge() {
   // );
 
   useEffect(() => {
-    if(connectedChain) {
-      setFromNetwork(getChainsByID(connectedChain.id))
+    if (connectedChain) {
+      setFromNetwork(getChainsByID(connectedChain.id));
     }
-  }, [connectedChain])
+  }, [connectedChain, setFromNetwork]);
 
   const details: TransferDetails = useMemo(() => {
     return {
@@ -94,7 +93,8 @@ export default function CCIPBridge() {
       sourceChain: fromNetwork,
       destinationChain: toNetwork,
       destinationAccount: (account && account.address) ?? '',
-      tokenAddress: ccipRouterConfig.getRouterConfig(fromNetwork).whitelistedTokens.BTCLP,
+      tokenAddress:
+        ccipRouterConfig.getRouterConfig(fromNetwork).whitelistedTokens.BTCLP,
       amount: ethers.utils.parseEther(debouncedAmount.replace(',', '.')),
       feeTokenAddress: selectedFeeToken,
     };
@@ -103,41 +103,41 @@ export default function CCIPBridge() {
     fromNetwork,
     toNetwork,
     account,
-    amount,
     selectedFeeToken,
-    feeTokens
+    debouncedAmount,
   ]);
 
   // get balances
   useEffect(() => {
-    setUpdateBalances(true)
+    setUpdateBalances(true);
     return () => {
       setUpdateBalances(false);
-    }
-  }, [details])
+    };
+  }, [details, setUpdateBalances]);
 
   const updateAmount = (value: string) => {
-      // Allow numbers, comma, and dot, but ensure there is at least one digit before or after the decimal point
-      const regex = /^(\d+[.,]?\d*|[.,]\d+)$/;
-      if (value === '' || value === '.' || value === ',') {
-        setAmount('0');
-      } else if (value === '0') {
-        // Allow explicitly setting the value to '0'
-        setAmount(value);
-      } else if (regex.test(value)) {
-        // Replace commas with dots and remove leading zeros
-        const cleanedValue = value.replace(',', '.').replace(/^0*(?=\d)/, '');
-        if(cleanedValue >= balances.btclp){
-          setAmount(balances.btclp);
-        } else {
-          setAmount(cleanedValue);
-        }
+    // Allow numbers, comma, and dot, but ensure there is at least one digit before or after the decimal point
+    const regex = /^(\d+[.,]?\d*|[.,]\d+)$/;
+    if (value === '' || value === '.' || value === ',') {
+      setAmount('0');
+    } else if (value === '0') {
+      // Allow explicitly setting the value to '0'
+      setAmount(value);
+    } else if (regex.test(value)) {
+      // Replace commas with dots and remove leading zeros
+      const cleanedValue = value.replace(',', '.').replace(/^0*(?=\d)/, '');
+      if (cleanedValue >= balances.btclp) {
+        setAmount(balances.btclp);
+      } else {
+        setAmount(cleanedValue);
       }
+    }
   };
 
   useEffect(() => {
     const getBTCLPFee = async () => {
-      const availableFeeTokens = ccipRouterConfig.getRouterConfig(fromNetwork).feeTokens;
+      const availableFeeTokens =
+        ccipRouterConfig.getRouterConfig(fromNetwork).feeTokens;
       // console.log('availableFeeTokens', availableFeeTokens);
       setFeeTokens(availableFeeTokens);
       if ('ETH' in availableFeeTokens) {
@@ -169,23 +169,27 @@ export default function CCIPBridge() {
 
   useEffect(() => {
     const getBTCLPFee = async () => {
-      if(!details.destinationAccount) return
-      if(fromNetwork === toNetwork) return
-  
-      const fromNetworkConfigLanes = ccipRouterConfig.getRouterConfig(fromNetwork).lanes;
-  
+      if (!details.destinationAccount) return;
+      if (fromNetwork === toNetwork) return;
+
+      const fromNetworkConfigLanes =
+        ccipRouterConfig.getRouterConfig(fromNetwork).lanes;
+
       if (!fromNetworkConfigLanes) {
         console.error(`Configuration for ${fromNetwork} not found.`);
         return;
       }
-  
+
       if (!fromNetworkConfigLanes.includes(toNetwork)) {
         // If toNetwork is not in lanes of fromNetwork, exit the function.
         console.log(`${toNetwork} is not in lanes of ${fromNetwork}`);
         return;
       }
-  
-      const updatedDetails = { ...details, amount: ethers.utils.parseEther(debouncedAmount.replace(',', '.')) };
+
+      const updatedDetails = {
+        ...details,
+        amount: ethers.utils.parseEther(debouncedAmount.replace(',', '.')),
+      };
 
       // TODO GRANT APPROVAL - SUPPORT ALL WHITELISTED TOKENS ON BOTH MAINNET AND TESTNET
       const { fees, message } = await getChainlinkCCIPFee(updatedDetails);
@@ -193,11 +197,10 @@ export default function CCIPBridge() {
       console.log('message', message);
       setCcipFees(fees);
       setMessage(message);
-  
     };
     getBTCLPFee();
-  }, [details, debouncedAmount, connectedChain]);
-  
+  }, [fromNetwork, toNetwork, details, debouncedAmount, connectedChain]);
+
   // GET ALL BALANCES
   // GET ALL FEE TOKENS
   // SELECT TOKEN TO TRANSFER
@@ -245,8 +248,8 @@ export default function CCIPBridge() {
           </div>
 
           <div className="flex justify-between items-end mt-4 text-lg">
-              <div>Amount</div>
-              <div>{balances.btclp} BTCLP</div>
+            <div>Amount</div>
+            <div>{balances.btclp} BTCLP</div>
           </div>
 
           <div className="flex justify-between text-lg mt-1 bg-primaryPurpleBgDarkest">
@@ -266,7 +269,7 @@ export default function CCIPBridge() {
             </button>
           </div>
 
-          <CCIPBridgeFeeTokens 
+          <CCIPBridgeFeeTokens
             ccipFees={ccipFees}
             feeTokens={feeTokens}
             openFeeTokenModal={openFeeTokenModal}

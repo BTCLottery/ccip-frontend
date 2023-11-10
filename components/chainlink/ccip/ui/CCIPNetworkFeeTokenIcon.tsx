@@ -108,4 +108,4 @@ const CCIPNetworkFeeTokenIcon = ({
   }
 };
 
-export default CCIPNetworkFeeTokenIcon
+export default CCIPNetworkFeeTokenIcon;

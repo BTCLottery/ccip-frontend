@@ -196,7 +196,7 @@ const arbitrumGoerli = {
   networkStage: 'Testnet',
   address: '0x88e492127709447a5abefdab8788a15b4567589e',
   chainSelector: '6101244977088475029',
-  lanes: ['optimismGoerli','ethereumGoerli'],
+  lanes: ['optimismGoerli', 'ethereumGoerli'],
   feeTokens: {
     ETH: '',
     WETH: '0x32d5D5978905d9c6c2D4C417F0E06Fe768a4FB5a',

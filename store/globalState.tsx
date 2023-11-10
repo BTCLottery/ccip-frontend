@@ -14,7 +14,7 @@ const { useGlobalState } = createGlobalState<GlobalTypes>({
     usdc: '0',
     dai: '0',
     link: '0',
-    btclp: '0'
+    btclp: '0',
   },
   // CCIP ROUTES
   fromNetwork: IS_LOCAL ? 'ethereumSepolia' : 'ethereumMainnet',

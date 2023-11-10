@@ -32,7 +32,15 @@ const getChainlinkCCIPFee = async (
 ): Promise<ICCIPFee> => {
   const retry = async (retries: number): Promise<ICCIPFee> => {
     try {
-      const { ethersProvider, sourceChain, destinationChain, destinationAccount, tokenAddress, amount, feeTokenAddress } = details;
+      const {
+        ethersProvider,
+        sourceChain,
+        destinationChain,
+        destinationAccount,
+        tokenAddress,
+        amount,
+        feeTokenAddress,
+      } = details;
       console.log(`Transferring tokens...`);
       console.log(`Source Chain: ${sourceChain}`);
       console.log(`Destination Chain: ${destinationChain}`);
@@ -55,7 +63,8 @@ const getChainlinkCCIPFee = async (
       if (!signer) return { fees, message };
 
       // Get the router's address for the specified chain
-      const sourceRouterAddress = ccipConfig.getRouterConfig(sourceChain).address;
+      const sourceRouterAddress =
+        ccipConfig.getRouterConfig(sourceChain).address;
       // const sourceChainSelector =
       //   ccipConfig.getRouterConfig(sourceChain).chainSelector;
       // Get the chain selector for the target chain
@@ -67,7 +76,11 @@ const getChainlinkCCIPFee = async (
       );
 
       // Create a contract instance for the router using its ABI and address
-      const sourceRouter = new Contract(sourceRouterAddress, routerAbi, provider);
+      const sourceRouter = new Contract(
+        sourceRouterAddress,
+        routerAbi,
+        provider
+      );
 
       // console.log('destinationChainSelector', destinationChainSelector);
       // console.log('sourceRouter', sourceRouter);
@@ -103,7 +116,10 @@ const getChainlinkCCIPFee = async (
       const encodedExtraArgs = functionSelector + extraArgs.slice(2);
 
       message = {
-        receiver: utils.defaultAbiCoder.encode(['address'], [destinationAccount]),
+        receiver: utils.defaultAbiCoder.encode(
+          ['address'],
+          [destinationAccount]
+        ),
         data: '0x', // no data
         tokenAmounts,
         feeToken: feeTokenAddress || constants.AddressZero, // If fee token address is provided then fees must be paid in fee token.
@@ -146,15 +162,16 @@ const getChainlinkCCIPFee = async (
       console.error('An error occurred:', error);
       if (retries > 0) {
         console.log('Retrying after 1 second...');
-        await new Promise(resolve => setTimeout(resolve, 2000)); // Wait for 2 second
+        await new Promise(resolve => {
+          setTimeout(resolve, 2000); // Wait for 2 second
+        });
         return retry(retries - 1); // Retry the function
-      } else {
-        console.log('Max retries reached. Exiting.');
-        // You can return a default value or throw an error here, depending on your needs
-        return CCIPFeeFallback;
       }
+      console.log('Max retries reached. Exiting.');
+      // You can return a default value or throw an error here, depending on your needs
+      return CCIPFeeFallback;
     }
-  }
+  };
 
   // Call the retry function with the number of retries you want
   // For example, if you want to retry once, you would pass 1

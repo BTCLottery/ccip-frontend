@@ -2,8 +2,8 @@ import { ReactElement } from 'react';
 import { WalletState } from '@web3-onboard/core/dist/types';
 import { getAddress } from '@ethersproject/address';
 import Jazzicon, { jsNumberForAddress } from 'react-jazzicon';
-import RotatingArrow from '@/components/header/partials/RotatingArrow';
 import Image from 'next/image';
+import RotatingArrow from '@/components/header/partials/RotatingArrow';
 
 function showTemporaryButtonText(
   connecting: boolean,

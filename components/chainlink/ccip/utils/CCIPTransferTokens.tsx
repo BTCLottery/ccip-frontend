@@ -13,24 +13,38 @@ const CCIPTransferTokens = async (
   fees: string,
   message: Message
 ): Promise<string> => {
-  const { ethersProvider, sourceChain, destinationChain, destinationAccount, tokenAddress, amount, feeTokenAddress } = details;
+  const {
+    ethersProvider,
+    sourceChain,
+    destinationChain,
+    destinationAccount,
+    tokenAddress,
+    amount,
+    feeTokenAddress,
+  } = details;
   const amountBN: BigNumber = ethers.BigNumber.from(amount);
   const parsedFee = ethers.utils.parseEther(fees);
-  
+
   if (!ethersProvider) return '';
   const signer = ethersProvider.getSigner();
   if (!signer) return '';
 
   // Get the router's address for the specified chain
   const sourceRouterAddress = ccipConfig.getRouterConfig(sourceChain).address;
-  const sourceChainSelector = ccipConfig.getRouterConfig(sourceChain).chainSelector;
+  const sourceChainSelector =
+    ccipConfig.getRouterConfig(sourceChain).chainSelector;
   // Get the chain selector for the target chain
-  const destinationChainSelector = ccipConfig.getRouterConfig(destinationChain).chainSelector;
+  const destinationChainSelector =
+    ccipConfig.getRouterConfig(destinationChain).chainSelector;
 
   // const provider = new ethers.providers.JsonRpcProvider(ccipConfig.getProviderRpcUrl(sourceChain));
 
   // Create a contract instance for the router using its ABI and address
-  const sourceRouter = new ethers.Contract(sourceRouterAddress,routerAbi,signer);
+  const sourceRouter = new ethers.Contract(
+    sourceRouterAddress,
+    routerAbi,
+    signer
+  );
 
   /*
     ==================================================

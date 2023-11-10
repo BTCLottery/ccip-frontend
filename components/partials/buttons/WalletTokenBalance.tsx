@@ -11,9 +11,9 @@ import getChainTokens from '@/utils/providers/chainlink/ccip/config/chainTokens'
 export default function WalletTokenBalance() {
   const [balances] = useGlobalState('balances');
   const { connectedChain } = useWallet();
-  if(!balances) return null
-  if(!connectedChain) return null
-  const chainTokens = getChainTokens(connectedChain.id)
+  if (!balances) return null;
+  if (!connectedChain) return null;
+  const chainTokens = getChainTokens(connectedChain.id);
   return (
     <div className="w-full mb-5">
       <ul className="w-full flex items-start flex-col">
@@ -41,14 +41,14 @@ export default function WalletTokenBalance() {
           balance={balances.usdc}
           isLast={false}
         />
-        {connectedChain.id !== '0x2105' && connectedChain.id !== '0x14a33' && 
+        {connectedChain.id !== '0x2105' && connectedChain.id !== '0x14a33' && (
           <BalancesRow
             logo={usdtLogo}
             label="USDT"
             balance={balances.usdt}
             isLast={false}
           />
-        }
+        )}
         <BalancesRow
           logo={daiLogo}
           label="DAI"

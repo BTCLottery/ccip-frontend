@@ -1,4 +1,4 @@
-import { providers } from "ethers";
+import { providers } from 'ethers';
 
 export type MulticallAddress = {
   [key: string]: [key: string];
@@ -9,7 +9,7 @@ export type MulticallRound = {
 };
 
 export type MulticallType = {
-  ethersProvider: providers.JsonRpcProvider | providers.WebSocketProvider
+  ethersProvider: providers.JsonRpcProvider | providers.WebSocketProvider;
   contractAddress: string;
   roundNr?: number;
   activeRound?: number;
@@ -20,4 +20,4 @@ export type MulticallType = {
 
 export type MulticallWinnersClaimedResponse = {
   winnersClaimed: boolean[];
-}
+};

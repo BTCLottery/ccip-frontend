@@ -1,8 +1,8 @@
 import { ReactElement, useEffect } from 'react';
 import { useAppState } from '@web3-onboard/react';
 import { useWindowSize, useCopyToClipboard } from 'usehooks-ts';
-import { IS_LOCAL } from '@/constants/networks';
 import Image from 'next/image';
+import { IS_LOCAL } from '@/constants/networks';
 import helpers from '@/utils/helpers';
 import useWallet from '@/hooks/useWallet';
 import CopyIcon from '@/public/icons/copy.svg';
@@ -18,7 +18,8 @@ export default function MenuWalletButton(): ReactElement {
   const [, copy] = useCopyToClipboard();
 
   const { width } = useWindowSize();
-  const { connecting, wallet, connect, disconnect, updateAccountCenter } = useWallet();
+  const { connecting, wallet, connect, disconnect, updateAccountCenter } =
+    useWallet();
 
   const { refs, active, handleButtonClick } = useComponentVisible<
     HTMLButtonElement,

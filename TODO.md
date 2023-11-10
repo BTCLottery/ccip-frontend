@@ -1,7 +1,7 @@
 <!-- CCIP FRONTEND UI -->
  1. [x] Extract from BTCLOTTERY Frontend Interface the General Acccess CCIP
  2. [x] Cleanup dead code after migrating wallets & network logic from BTCLP UI
- 3. [] Migrate multichain RPC wallet balances logic in frontend from backend
+ 3. [x] Migrate multichain RPC wallet balances logic in frontend from backend
  4. [] Start rebranding with Chainlinks Logo, Colors, Fonts
  5. [] Create a toggle logic to switch between Mainnet/Testnet
  6. [] Create a toggle logic to switch between CCIP Private Beta & General Access
