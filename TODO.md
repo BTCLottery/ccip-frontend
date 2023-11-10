@@ -5,9 +5,9 @@
  4. [] Start rebranding with Chainlinks Logo, Colors, Fonts
  5. [] Create a toggle logic to switch between Mainnet/Testnet
  6. [] Create a toggle logic to switch between CCIP Private Beta & General Access
- 7. [] Create modal with supported fee tokens for each chain 
- 8. [] Create Chainlinks Private Beta Hooks for the whitelisted CCIP Sender contracts 
- 9. [] Enhance approve button to either select MAX_INT or the input amount
+ 7. [] Create modal with supported tokens on each chain 
+ 8. [] Create Chainlinks Private Beta Hooks for the whitelisted CCIP Sender contracts
+ 9. [] Enhance approve button to either select MAX_INT or the given input amount
 10. [] Track CCIP Transfers
 11. [] Add notifications
 
