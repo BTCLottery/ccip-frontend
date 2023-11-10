@@ -18,6 +18,13 @@ module.exports = {
       xl: '1440px',
     },
     colors: {
+      // Chainlink Brand Colors
+      chainlinkBlue: '#375bd2',
+      chainlinkMirage: '#0c162c',
+      chainlinkBiscay: '#1a2b6b',
+      chainlinkPerano: '#a0b3f2',
+      chainlinkLavender: '#dfe7fb',
+      chainlinkZircon: '#f5f7fd',
       // dynamic
       transparent: 'transparent',
       white: '#FFFFFF',
