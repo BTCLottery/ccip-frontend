@@ -4,7 +4,7 @@ import MenuNetworkButton from '@/components/partials/buttons/MenuNetworkButton';
 
 export default function RightNavBar(): ReactElement {
   return (
-    <div className="flex order-2 pr-2">
+    <div className="flex order-2 sm:pr-2">
       <MenuNetworkButton />
       <MenuWalletButton />
     </div>

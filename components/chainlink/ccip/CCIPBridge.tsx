@@ -15,6 +15,7 @@ import useGlobalState from '@/store/globalState';
 import getChainsByID from '@/utils/providers/chainlink/ccip/config/chainsByID';
 import Lottie from 'lottie-react';
 import CCIPAnimation from '@/public/lottie/ccip.json';
+import Image from 'next/image';
 
 // TODO CCIP UI
 // [x] 1. FEE TOKENS MINI-MODAL
@@ -30,8 +31,6 @@ import CCIPAnimation from '@/public/lottie/ccip.json';
 // [] 9. Prepare for Goerli Sunset and moving to Sepolia Testnet
 // [] 10. BTCLP TOKEN DEPLOYMENT ON MAINNET! like you said Polygon will be the primary one since I think that now with CCIP it does not matter anymore if it's on Ethereum or Polygon first.
 // [] 11. Understanding all requirements for CCIP Sender Whitelisting before deployment on mainnet.
-//    [] 11.1. Would love to see a Solidity example for both the scenario of BTCLP Token Minting/Burning
-//    [] 11.2. for the purchasing tickets in raffle events crosschain I think I get it! the CCIPSender will be whitelisted in every raffle and users pay fee tokens to the CCIPSender contract and then the contract pays on their behalf and transfers BTCLP Tokens or any other Blockchain.
 // [] 12. Testnets seems to work, need to start testing on mainnet but need to deploy token first
 
 // TODO BTCLP UI
@@ -195,26 +194,35 @@ export default function CCIPBridge() {
     getBTCLPFee();
   }, [fromNetwork, toNetwork, details, debouncedAmount, connectedChain]);
 
-  // GET ALL BALANCES
-  // GET ALL FEE TOKENS
-  // SELECT TOKEN TO TRANSFER
-  // SELECT TOKEN FEE TO PAY FEE IN
-  // MAX TOKENS FORM BALANCE
-
   return (
     <section className={`w-full mx-auto`}>
       <Lottie
         animationData={CCIPAnimation}
         loop={true}
-        style={{position: 'absolute', height: 'auto', width: 'auto', margin: '0 auto'}}
+        style={{position: 'absolute', height: '1111px', width: '100%', margin: '0 auto'}}
       />
         <div className="absolute mx-auto w-full">
-          <h1 className="flex w-full items-center justify-center z-80 text-4xl my-1 text-chainlinkBlue">
-            CHAINLINK CCIP
-          </h1>
-          <h2 className="flex w-full items-center justify-center z-80 text-3xl my-1 text-chainlinkBiscay">
-            BTCLP BRIDGE
+          <div className="product-header_tag-wrapper">
+            <div className="flex flex-row justify-center items-center gap-4">
+              <div className="flex">
+                <Image 
+                  src="https://assets-global.website-files.com/5f6b7190899f41fb70882d08/648c8655667959beb00b4a76_icon-product_ccip.svg" 
+                  loading="lazy" 
+                  alt="Chainlink CCIP logo"
+                  width={100}
+                  height={100}
+                  className="mx-auto" 
+                />
+              </div>
+              <h1 className="text-chainlinkMirage flex justify-center text-3xl">CCIP</h1>
+            </div>
+          </div>
+          <h2 className="flex w-full items-center justify-center z-80 text-4xl my-1 text-chainlinkBlue">
+            Cross-chain Bridge by Chainlink
           </h2>
+          <h3 className="flex w-full items-center justify-center z-80 text-2xl my-1 text-chainlinkBiscay">
+            The era of secure blockchain interoperability has arrived.
+          </h3>
           <div className={`flex w-full max-w-[430px] h-[400px] mx-auto my-4`}>
             <div className="bg-chainlinkBiscay w-full rounded-lg px-4" style={{
               boxShadow: '0px 9px 18px 2px rgba(0,0,0,0.71)'
@@ -307,6 +315,8 @@ export default function CCIPBridge() {
               </div>
             </div>
           </div>
+
+        <h4 className='flex justify-center w-full text-chainlinkMirage'>Build with 💜 by <div className='ml-1'><Link target='_blank' href="https://www.btclottery.io/"> btclottery.io </Link></div></h4>
         </div>
     </section>
   );

@@ -10,7 +10,7 @@ export default function ChainlinkCCIPBridge() {
         id="dynamicGame"
         className={`subpixel-antialiased font-kanit overflow-x-hidden h-screen w-full`}
       >
-        <div className="flex flex-col justify-start mt-32 items-center text-white h-full">
+        <div className="flex flex-col justify-start mt-40 items-center text-white h-full">
             <CCIPBridge />
         </div>
       </main>

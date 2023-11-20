@@ -28,11 +28,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
-    "utils/types/transak-sdk",
-    "blockchain.js",
-    "pages/api/prizes",
-    "utils/providers/chainlinkVRF.tsx"
+    "**/*.tsx"
   ],
   "exclude": ["node_modules", "dist", "coverage"]
 }

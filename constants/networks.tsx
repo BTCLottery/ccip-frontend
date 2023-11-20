@@ -6,8 +6,7 @@ import base from '@/public/images/networks/base-logo-in-blue.svg';
 import optimism from '@/public/images/networks/optimism-logo.svg';
 import arbitrum from '@/public/images/networks/arbitrum-arb-logo.svg';
 
-export const IS_LOCAL =
-  process.env.NEXT_PUBLIC_DEVELOPMENT_NODE_ENV === 'development';
+export const IS_LOCAL = process.env.NEXT_PUBLIC_DEVELOPMENT_NODE_ENV === 'development';
 
 const LOCAL_TESTNET_TOKENS = {
   dai: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',

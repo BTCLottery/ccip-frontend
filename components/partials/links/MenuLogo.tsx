@@ -7,7 +7,7 @@ export default function MenuLogo(): ReactElement {
   const { width } = useWindowSize();
   return (
     <Link href="/" className="flex">
-      <div className="relative">
+      <div className="relative ml-2">
         <Image
           // could use chainlink svg here, but png has transparency
           src="/images/chainlink-png/Chainlink-Logo-White.png"
