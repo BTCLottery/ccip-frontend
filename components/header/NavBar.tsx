@@ -5,7 +5,9 @@ import LeftDrawer from './partials/LeftDrawer';
 
 export default function NavBar(): ReactElement {
   return (
-    <nav className="fixed w-full z-50 bg-chainlinkBiscay py-3">
+    <nav className="fixed w-full z-50 bg-chainlinkBiscay py-3"  style={{
+      boxShadow: '0px 9px 18px 2px rgba(0,0,0,0.71)'
+  }}>
       <div className="flex flex-wrap justify-between items-center">
         <LeftNavBar />
         <LeftDrawer />

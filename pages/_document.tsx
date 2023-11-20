@@ -35,7 +35,7 @@ export default function Document(): ReactElement {
         `}
         </style>
       </Head>
-      <body className="bg-secondaryBlackBg text-white">
+      <body className="bg-chainlinkZircon text-white">
         <Main />
         <div id="modal-root" />
         <NextScript />
