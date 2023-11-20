@@ -64,7 +64,7 @@ export default function MenuWalletButton(): ReactElement {
             <button
               ref={refs[0]}
               type="button"
-              className="hover:bg-opacity-90 h-10 border text-white bg-primaryPurple border-nftEpic font-medium rounded-lg text-sm px-2 text-center"
+              className="hover:bg-opacity-90 h-10 border text-white bg-chainlinkBlue border-nftEpic font-medium rounded-lg text-sm px-2 text-center"
               disabled={connecting}
               onClick={() => (wallet ? openWalletModal() : connect())}
             >
@@ -74,7 +74,7 @@ export default function MenuWalletButton(): ReactElement {
           {wallet && active && (
             <div
               ref={refs[1]}
-              className="fixed w-9/12 sm:w-64 mt-14 right-0 bg-coolPurple rounded-lg"
+              className="fixed w-9/12 sm:w-64 mt-14 right-0 bg-chainlinkBiscay rounded-lg"
             >
               <div className="flex fle-col mt-3 px-3 text-white justify-between">
                 <div className="flex flex-row flex-start p-1">

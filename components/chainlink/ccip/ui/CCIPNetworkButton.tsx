@@ -34,7 +34,7 @@ const CCIPNetworkButton: React.FC<ICCIPButtonProps> = ({
     <button
       onClick={handleClick}
       type="button"
-      className="flex items-center justify-center bg-primaryPurple hover:bg-opacity-80 rounded-lg mt-4 w-40 h-20"
+      className="flex items-center justify-center bg-chainlinkBlue hover:bg-opacity-80 rounded-lg mt-4 w-40 h-20"
     >
       {/* <Image src={networkImages("ethereumMainnet")} width={40} height={40} alt="chain" /> */}
       <CCIPProviderIcon

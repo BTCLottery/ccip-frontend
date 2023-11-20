@@ -23,7 +23,7 @@ const WalletIconButtons = ({
   return (
     <div className="flex flex-wrap justify-center place-content-center self-center">
       <button
-        className="p-1 mx-1 bg-secondaryColor rounded-lg"
+        className="p-1 mx-1 bg-chainlinkBlue rounded-lg"
         onMouseEnter={() => setOnHover(true)}
         onMouseLeave={() => setOnHover(false)}
         onClick={() => {

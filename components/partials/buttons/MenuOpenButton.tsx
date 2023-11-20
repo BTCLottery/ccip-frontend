@@ -14,7 +14,7 @@ export default function MenuOpenButton(): ReactElement {
     <button
       id="menu-toggle-button"
       type="button"
-      className="sm:mr-1 inline-flex items-center p-2 text-sm text-white rounded-lg hover:bg-coolPurple focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-coolPurple dark:focus:ring-coolPurple"
+      className="sm:mr-1 inline-flex items-center p-2 text-sm text-white rounded-lg hover:bg-chainlinkBlue focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-chainlinkBlue dark:focus:ring-coolPurple"
       aria-expanded="false"
       aria-controls="navbar-cta"
       data-collapse-toggle="navbar-cta"

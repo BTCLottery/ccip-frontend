@@ -60,7 +60,7 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
       <div
         key={i}
         onClick={() => setFromToNetwork(network)}
-        className={`flex flex-row justify-start items-center h-auto hover:bg-primaryStroke rounded-lg`}
+        className={`flex flex-row justify-start items-center h-auto hover:bg-chainlinkBlue rounded-lg`}
       >
         <div className="flex flex-row justify-start items-center mx-4 p-3">
           <CCIPProviderIcon network={network} widthSize={20} heightSize={32} />
@@ -73,7 +73,7 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
                 w-20 h-8 ml-6 rounded-lg text-md flex items-center justify-center
                 ${
                   network === networkReference
-                    ? 'bg-primaryHighlight rounded border-2'
+                    ? 'bg-chainlinkBlue rounded border-2'
                     : ''
                 } 
             `}
@@ -91,7 +91,7 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
       ref={modalRef}
       className={`${
         activeModal ? '' : 'hidden'
-      } absolute bg-primaryPurpleBgDarker max-w-[400px] h-auto rounded-lg border-blue-50 border-2 z-10`}
+      } absolute bg-chainlinkMirage max-w-[400px] h-auto rounded-lg border-blue-50 border-2 z-10`}
     >
       <div className="flex flex-col justify-center">
         <div className="flex flex-col">

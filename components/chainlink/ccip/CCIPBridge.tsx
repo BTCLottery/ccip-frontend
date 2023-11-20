@@ -2,11 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ethers } from 'ethers';
 import { useDebounce } from 'use-debounce';
-import { IS_LOCAL } from '@/constants/networks';
 import useWallet from '@/hooks/useWallet';
-import ccipRouterConfig, {
-  FeeTokens,
-} from '@/utils/providers/chainlink/ccip/config/router';
+import ccipRouterConfig, { FeeTokens } from '@/utils/providers/chainlink/ccip/config/router';
 import CCIPBridgeTokensButton from './ui/CCIPBridgeTokensButton';
 import CCIPNetworkButton from '@/components/chainlink/ccip/ui/CCIPNetworkButton';
 import getChainlinkCCIPFee from './utils/getChainlinkCCIPFee';
@@ -73,13 +70,6 @@ export default function CCIPBridge() {
   const [amount, setAmount] = useState<string>('0');
 
   const [debouncedAmount] = useDebounce(amount, 500); // 500ms delay
-
-  // const [fromNetwork, setFromNetwork] = useState<string>(
-  //   IS_LOCAL ? 'ethereumSepolia' : 'ethereumMainnet'
-  // );
-  // const [toNetwork, setToNetwork] = useState<string>(
-  //   IS_LOCAL ? 'polygonMumbai' : 'polygonMainnet'
-  // );
 
   useEffect(() => {
     if (connectedChain) {
@@ -216,7 +206,7 @@ export default function CCIPBridge() {
         BTCLP BRIDGE
       </h2>
       <div className={`flex w-full max-w-[430px] h-[400px] mx-auto my-4`}>
-        <div className="bg-primaryHighlightTone w-full rounded-lg px-4">
+        <div className="bg-chainlinkBiscay w-full rounded-lg px-4">
           <div className="flex justify-around mt-4">
             <CCIPNetworkButton
               setFromToNetwork={setFromNetwork}
@@ -252,9 +242,9 @@ export default function CCIPBridge() {
             <div>{balances.btclp} BTCLP</div>
           </div>
 
-          <div className="flex justify-between text-lg mt-1 bg-primaryPurpleBgDarkest">
+          <div className="flex justify-between text-lg mt-1 bg-chainlinkMirage">
             <input
-              className="w-10/12 bg-primaryPurpleBgDarkest pl-2 placeholder-white"
+              className="w-10/12 bg-chainlinkMirage pl-2 placeholder-white"
               name="tokenAmount"
               // placeholder="0"
               value={amount}
@@ -262,7 +252,7 @@ export default function CCIPBridge() {
             />
             <button className="w-1/3">BTCLP</button>
             <button
-              className="w-1/4 bg-primaryPurple hover:bg-opacity-80 border-r-lg"
+              className="w-1/4 bg-chainlinkBlue hover:bg-opacity-80 border-r-lg"
               onClick={() => setAmount(balances.btclp)}
             >
               MAX

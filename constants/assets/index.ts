@@ -6,7 +6,6 @@ import { binanceTokens } from 'constants/assets/binance';
 import { baseTokens } from 'constants/assets/base';
 import { optimismTokens } from 'constants/assets/optimism';
 import { TokenBalances } from '@/utils/types/balances';
-// import { constants } from "ethers";
 
 export const assets = {
   ethereumTokens,

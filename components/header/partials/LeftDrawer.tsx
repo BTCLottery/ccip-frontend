@@ -63,17 +63,16 @@ export default function LeftDrawer() {
     <>
       <aside
         ref={modalRef}
-        className={`w-60 fixed delay-75 duration-300 z-20 top-16 flex justify-center text-lg ${
+        className={`w-60 fixed delay-75 duration-300 z-20 top-16 flex justify-center text-lg bg-chainlinkBiscay ${
           sideNavMenuOpen ? 'translate-x-0' : 'translate-x-[-260px]'
         }`}
         aria-label="Sidebar"
-        id="leftSideBar"
       >
         <div className="min-h-screen overflow-y-auto">
           <div className="flex flex-col items-center mt-4 mx-2">
             <Link
               href="/"
-              className="w-56 text-white bg-primaryHighlightTone font-medium rounded-lg text-lg py-2.5 text-center flex justify-around items-center"
+              className="w-56 text-white bg-chainlinkBlue font-medium rounded-lg text-lg py-2.5 text-center flex justify-around items-center"
             >
               <div className="flex flex-row items-center w-full">
                 <div className="mx-2 w-1/6 flex">
@@ -95,7 +94,7 @@ export default function LeftDrawer() {
             <Link
               href="https://docs.btclottery.io/bitcoin-lottery-protocol"
               target="_blank"
-              className="w-56 text-lg text-white bg-primaryHighlightTone font-medium rounded-lg py-2.5 text-center flex justify-around items-center"
+              className="w-56 text-lg text-white bg-chainlinkBlue font-medium rounded-lg py-2.5 text-center flex justify-around items-center"
             >
               Documentation
             </Link>

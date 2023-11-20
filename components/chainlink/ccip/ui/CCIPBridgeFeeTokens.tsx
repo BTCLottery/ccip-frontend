@@ -61,9 +61,9 @@ export default function CCIPBridgeFeeTokens({
           <div className="font-thin mr-2">{ccipFees}</div>
           <button
             onClick={() => setOpenFeeTokenModal(!openFeeTokenModal)}
-            className="pr-2 flex flex-row justify-center items-center bg-primaryPurple hover:bg-opacity-80 rounded-lg"
+            className="pr-2 flex flex-row justify-center items-center bg-chainlinkBlue hover:bg-opacity-80 rounded-lg"
           >
-            <div className="bg-primaryPurpleBgDarker rounded-l-lg py-1 px-2">
+            <div className="bg-chainlinkMirage rounded-l-lg py-1 px-2">
               <CCIPNetworkFeeTokenIcon
                 logoKey={selectedFeeSymbol}
                 widthSize={24}
@@ -89,7 +89,7 @@ export default function CCIPBridgeFeeTokens({
                     setSelectedFeeSymbol(key);
                     setOpenFeeTokenModal(false);
                   }}
-                  className="flex flex-row justify-start items-center h-auto bg-primaryPurpleBgDarker hover:bg-primaryPurpleBgDarkest p-3"
+                  className="flex flex-row justify-start items-center h-auto bg-chainlinkMirage hover:bg-chainlinkMirage p-3"
                 >
                   <CCIPNetworkFeeTokenIcon
                     logoKey={key}

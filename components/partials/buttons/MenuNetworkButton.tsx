@@ -44,7 +44,7 @@ export default function MenuNetworkButton() {
         <button
           ref={refs[0]}
           onClick={handleButtonClick}
-          className="select-none hover:bg-opacity-80 h-10 mx-1 flex pointer border text-white bg-primaryPurple border-nftEpic font-medium rounded-lg text-sm px-2 text-center"
+          className="select-none hover:bg-opacity-80 h-10 mx-1 flex pointer border text-white bg-chainlinkBlue border-nftEpic font-medium rounded-lg text-sm px-2 text-center"
         >
           <div className="flex color-white h-full items-center">
             <div className="ml-1 mr-2">
@@ -60,10 +60,10 @@ export default function MenuNetworkButton() {
       {wallet && active && (
         <div
           ref={refs[1]}
-          className="fixed w-9/12 sm:w-64 mt-14 ml-2 right-0 bg-coolPurple rounded-lg"
+          className="fixed w-9/12 sm:w-64 mt-14 ml-2 right-0 bg-chainlinkBiscay rounded-lg"
         >
           {chains.length > 1 && (
-            <div className="px-2 py-1 bg-coolBackgroundShade1 rounded-t-lg border-b border-coolOrange">
+            <div className="px-2 py-1 bg-chainlinkBlue rounded-t-lg border-b border-chainlinkZircon">
               Networks:{' '}
             </div>
           )}
@@ -73,7 +73,7 @@ export default function MenuNetworkButton() {
                 <button
                   onClick={() => switchChainID(chain.id)}
                   key={uuidv4()}
-                  className="w-full py-1 rounded-lg hover:bg-coolBackgroundShade1"
+                  className="w-full py-1 rounded-lg hover:bg-chainlinkBlue"
                 >
                   <div className="flex">
                     <div className="flex pt-2 pb-1 mx-2">

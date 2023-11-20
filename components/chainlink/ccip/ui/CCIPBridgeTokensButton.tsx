@@ -54,7 +54,7 @@ export default function CCIPBridgeTokensButton({
     <button
       onClick={() => handleBridgeCall()}
       type="button"
-      className="border-[#F8AE38] border-2 flex text-center items-center justify-center bg-primaryPurple rounded-lg hover:bg-opacity-80 mt-4 w-full h-20 text-xl"
+      className="border-chainlinkZircon border-2 flex text-center items-center justify-center bg-chainlinkBlue rounded-lg hover:bg-opacity-80 mt-4 w-full h-20 text-xl"
     >
       Bridge from {ccipRouterConfig.getRouterConfig(fromNetwork).networkName} to{' '}
       {ccipRouterConfig.getRouterConfig(toNetwork).networkName}
