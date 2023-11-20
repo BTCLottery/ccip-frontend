@@ -36,7 +36,7 @@ import { IS_LOCAL } from '@/constants/networks';
 const coinbase = coinbaseModule({ darkMode: true } as CoinbaseWalletOptions);
 
 const walletConnect = walletConnectModule({
-  dappUrl: "https://btclottery.io",
+  dappUrl: 'https://btclottery.io',
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT!,
   version: 2,
 });

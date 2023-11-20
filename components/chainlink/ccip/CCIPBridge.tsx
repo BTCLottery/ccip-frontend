@@ -2,6 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { ethers } from 'ethers';
 import { useDebounce } from 'use-debounce';
+import Lottie from 'lottie-react';
+import Image from 'next/image';
 import useWallet from '@/hooks/useWallet';
 import ccipRouterConfig, {
   FeeTokens,
@@ -13,9 +15,7 @@ import { Message, TransferDetails } from '@/utils/types/ccip';
 import CCIPBridgeFeeTokens from './ui/CCIPBridgeFeeTokens';
 import useGlobalState from '@/store/globalState';
 import getChainsByID from '@/utils/providers/chainlink/ccip/config/chainsByID';
-import Lottie from 'lottie-react';
 import CCIPAnimation from '@/public/lottie/ccip.json';
-import Image from 'next/image';
 
 // TODO CCIP UI
 // [x] 1. FEE TOKENS MINI-MODAL
@@ -199,125 +199,143 @@ export default function CCIPBridge() {
       <Lottie
         animationData={CCIPAnimation}
         loop={true}
-        style={{position: 'absolute', height: '1111px', width: '100%', margin: '0 auto'}}
+        style={{
+          position: 'absolute',
+          height: '1111px',
+          width: '100%',
+          margin: '0 auto',
+        }}
       />
-        <div className="absolute mx-auto w-full">
-          <div className="product-header_tag-wrapper">
-            <div className="flex flex-row justify-center items-center gap-4">
-              <div className="flex">
-                <Image 
-                  src="https://assets-global.website-files.com/5f6b7190899f41fb70882d08/648c8655667959beb00b4a76_icon-product_ccip.svg" 
-                  loading="lazy" 
-                  alt="Chainlink CCIP logo"
-                  width={100}
-                  height={100}
-                  className="mx-auto" 
-                />
-              </div>
-              <h1 className="text-chainlinkMirage flex justify-center text-3xl">CCIP</h1>
-            </div>
-          </div>
-          <h2 className="flex w-full items-center justify-center z-80 text-4xl my-1 text-chainlinkBlue">
-            Cross-chain Bridge by Chainlink
-          </h2>
-          <h3 className="flex w-full items-center justify-center z-80 text-2xl my-1 text-chainlinkBiscay">
-            The era of secure blockchain interoperability has arrived.
-          </h3>
-          <div className={`flex w-full max-w-[430px] h-[400px] mx-auto my-4`}>
-            <div className="bg-chainlinkBiscay w-full rounded-lg px-4" style={{
-              boxShadow: '0px 9px 18px 2px rgba(0,0,0,0.71)'
-            }}>
-              <div className="flex justify-around mt-4">
-                <CCIPNetworkButton
-                  setFromToNetwork={setFromNetwork}
-                  fromTo="From"
-                  networkReferenceFrom={fromNetwork}
-                  networkReferenceTo={toNetwork}
-                  networkName={
-                    ccipRouterConfig.getRouterConfig(fromNetwork).networkName
-                  }
-                  networkStage={
-                    ccipRouterConfig.getRouterConfig(fromNetwork).networkStage
-                  }
-                  networkLanes={[]}
-                />
-                <div className="w-auto flex items-center mt-4">{'<->'}</div>
-                <CCIPNetworkButton
-                  setFromToNetwork={setToNetwork}
-                  fromTo="To"
-                  networkReferenceFrom={fromNetwork}
-                  networkReferenceTo={toNetwork}
-                  networkName={
-                    ccipRouterConfig.getRouterConfig(toNetwork).networkName
-                  }
-                  networkStage={
-                    ccipRouterConfig.getRouterConfig(toNetwork).networkStage
-                  }
-                  networkLanes={
-                    ccipRouterConfig.getRouterConfig(fromNetwork).lanes
-                  }
-                />
-              </div>
-
-              <div className="flex justify-between items-end mt-4 text-lg">
-                <div>Amount</div>
-                <div>{balances.btclp} BTCLP</div>
-              </div>
-
-              <div className="flex justify-between text-lg mt-1 bg-chainlinkMirage">
-                <input
-                  className="w-10/12 bg-chainlinkMirage pl-2 placeholder-white"
-                  name="tokenAmount"
-                  // placeholder="0"
-                  value={amount}
-                  onChange={e => updateAmount(e.target.value)}
-                />
-                <button className="w-1/3">BTCLP</button>
-                <button
-                  className="w-1/4 bg-chainlinkBlue hover:bg-opacity-80 border-r-lg"
-                  onClick={() => setAmount(balances.btclp)}
-                >
-                  MAX
-                </button>
-              </div>
-
-              <CCIPBridgeFeeTokens
-                ccipFees={ccipFees}
-                feeTokens={feeTokens}
-                openFeeTokenModal={openFeeTokenModal}
-                selectedFeeSymbol={selectedFeeSymbol}
-                setOpenFeeTokenModal={setOpenFeeTokenModal}
-                setSelectedFeeToken={setSelectedFeeToken}
-                setSelectedFeeSymbol={setSelectedFeeSymbol}
+      <div className="absolute mx-auto w-full">
+        <div className="product-header_tag-wrapper">
+          <div className="flex flex-row justify-center items-center gap-4">
+            <div className="flex">
+              <Image
+                src="https://assets-global.website-files.com/5f6b7190899f41fb70882d08/648c8655667959beb00b4a76_icon-product_ccip.svg"
+                loading="lazy"
+                alt="Chainlink CCIP logo"
+                width={100}
+                height={100}
+                className="mx-auto"
               />
-
-              <CCIPBridgeTokensButton
-                fromNetwork={fromNetwork}
-                toNetwork={toNetwork}
-                setToNetwork={setToNetwork}
-                amount={debouncedAmount}
-                details={details}
-                fees={ccipFees}
-                message={generatedMessage}
-              />
-
-              <div className="flex justify-center items-center mt-4 w-full text-lg">
-                <Link
-                  target="_blank"
-                  href={`https://ccip.chain.link/address/${
-                    account?.address ?? ''
-                  }`}
-                  rel="noopener noreferrer"
-                  className="underline"
-                >
-                  My transactions
-                </Link>
-              </div>
             </div>
+            <h1 className="text-chainlinkMirage flex justify-center text-3xl">
+              CCIP
+            </h1>
           </div>
-
-        <h4 className='flex justify-center w-full text-chainlinkMirage'>Build with 💜 by <div className='ml-1'><Link target='_blank' href="https://www.btclottery.io/"> btclottery.io </Link></div></h4>
         </div>
+        <h2 className="flex w-full items-center justify-center z-80 text-4xl my-1 text-chainlinkBlue">
+          Cross-chain Bridge by Chainlink
+        </h2>
+        <h3 className="flex w-full items-center justify-center z-80 text-2xl my-1 text-chainlinkBiscay">
+          The era of secure blockchain interoperability has arrived.
+        </h3>
+        <div className={`flex w-full max-w-[430px] h-[400px] mx-auto my-4`}>
+          <div
+            className="bg-chainlinkBiscay w-full rounded-lg px-4"
+            style={{
+              boxShadow: '0px 9px 18px 2px rgba(0,0,0,0.71)',
+            }}
+          >
+            <div className="flex justify-around mt-4">
+              <CCIPNetworkButton
+                setFromToNetwork={setFromNetwork}
+                fromTo="From"
+                networkReferenceFrom={fromNetwork}
+                networkReferenceTo={toNetwork}
+                networkName={
+                  ccipRouterConfig.getRouterConfig(fromNetwork).networkName
+                }
+                networkStage={
+                  ccipRouterConfig.getRouterConfig(fromNetwork).networkStage
+                }
+                networkLanes={[]}
+              />
+              <div className="w-auto flex items-center mt-4">{'<->'}</div>
+              <CCIPNetworkButton
+                setFromToNetwork={setToNetwork}
+                fromTo="To"
+                networkReferenceFrom={fromNetwork}
+                networkReferenceTo={toNetwork}
+                networkName={
+                  ccipRouterConfig.getRouterConfig(toNetwork).networkName
+                }
+                networkStage={
+                  ccipRouterConfig.getRouterConfig(toNetwork).networkStage
+                }
+                networkLanes={
+                  ccipRouterConfig.getRouterConfig(fromNetwork).lanes
+                }
+              />
+            </div>
+
+            <div className="flex justify-between items-end mt-4 text-lg">
+              <div>Amount</div>
+              <div>{balances.btclp} BTCLP</div>
+            </div>
+
+            <div className="flex justify-between text-lg mt-1 bg-chainlinkMirage">
+              <input
+                className="w-10/12 bg-chainlinkMirage pl-2 placeholder-white"
+                name="tokenAmount"
+                // placeholder="0"
+                value={amount}
+                onChange={e => updateAmount(e.target.value)}
+              />
+              <button className="w-1/3">BTCLP</button>
+              <button
+                className="w-1/4 bg-chainlinkBlue hover:bg-opacity-80 border-r-lg"
+                onClick={() => setAmount(balances.btclp)}
+              >
+                MAX
+              </button>
+            </div>
+
+            <CCIPBridgeFeeTokens
+              ccipFees={ccipFees}
+              feeTokens={feeTokens}
+              openFeeTokenModal={openFeeTokenModal}
+              selectedFeeSymbol={selectedFeeSymbol}
+              setOpenFeeTokenModal={setOpenFeeTokenModal}
+              setSelectedFeeToken={setSelectedFeeToken}
+              setSelectedFeeSymbol={setSelectedFeeSymbol}
+            />
+
+            <CCIPBridgeTokensButton
+              fromNetwork={fromNetwork}
+              toNetwork={toNetwork}
+              setToNetwork={setToNetwork}
+              amount={debouncedAmount}
+              details={details}
+              fees={ccipFees}
+              message={generatedMessage}
+            />
+
+            <div className="flex justify-center items-center mt-4 w-full text-lg">
+              <Link
+                target="_blank"
+                href={`https://ccip.chain.link/address/${
+                  account?.address ?? ''
+                }`}
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                My transactions
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <h4 className="flex justify-center w-full text-chainlinkMirage">
+          Build with 💜 by{' '}
+          <div className="ml-1">
+            <Link target="_blank" href="https://www.btclottery.io/">
+              {' '}
+              btclottery.io{' '}
+            </Link>
+          </div>
+        </h4>
+      </div>
     </section>
   );
 }
