@@ -11,6 +11,7 @@ interface ICCIPNetworkMenuProps {
   setActiveModal: Dispatch<SetStateAction<boolean>>;
   setFromToNetwork: Dispatch<SetStateAction<string>>;
   networkLanes: string[];
+  leftOrRight: string;
 }
 
 const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
@@ -21,6 +22,7 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
   setFromToNetwork,
   setActiveModal,
   networkLanes,
+  leftOrRight
 }) => {
   // Render function to display networks
   const modalRef = useRef<HTMLDivElement>(null);
@@ -91,8 +93,9 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
       ref={modalRef}
       className={`${
         activeModal ? '' : 'hidden'
-      } absolute bg-chainlinkMirage max-w-[400px] h-auto rounded-lg border-blue-50 border-2 z-10`}
+      } absolute bg-chainlinkMirage max-w-[400px] ${leftOrRight === 'left' ? 'ml-[111px]' : '-ml-[111px]'} mx-auto h-auto rounded-lg border-blue-50 border-2 z-10`}
     >
+      {/* sm:${leftOrRight === 'left' ? 'left-0' : 'right-0'}  */}
       <div className="flex flex-col justify-center">
         <div className="flex flex-col">
           {IS_LOCAL
