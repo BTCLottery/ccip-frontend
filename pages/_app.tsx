@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppAuthProps): ReactElement {
       <Script
           src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"
           onLoad={() => {
-            new VConsole();
+            (()=>new VConsole())();
           }}
       ></Script>
       <Web3OnboardProvider web3Onboard={blockNativeProvider}>
