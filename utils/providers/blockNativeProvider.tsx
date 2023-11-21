@@ -19,8 +19,7 @@ import infinityWalletModule from '@web3-onboard/infinity-wallet';
 // import { Web3AuthCore } from "@web3auth/core";
 // import sequenceModule from '@web3-onboard/sequence';
 import tallyModule from '@web3-onboard/tallyho';
-import metamaskModule from '@web3-onboard/metamask'
-
+import metamaskModule from '@web3-onboard/metamask';
 import { Chain } from '@web3-onboard/common/dist/types';
 import {
   CoinbaseWalletOptions,
@@ -39,13 +38,13 @@ const metamask = metamaskModule({
   options: {
     extensionOnly: false,
     i18nOptions: {
-      enabled: true
+      enabled: true,
     },
     dappMetadata: {
-      name: 'Web3Onboard React Demo'
-    }
-  }
-})
+      name: 'Web3Onboard React Demo',
+    },
+  },
+});
 
 const coinbase = coinbaseModule({ darkMode: true } as CoinbaseWalletOptions);
 
