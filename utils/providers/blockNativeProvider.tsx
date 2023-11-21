@@ -171,7 +171,7 @@ const testnetChains = [
     id: '0x13881',
     token: 'MATIC',
     label: 'Polygon Mumbai',
-    rpcUrl: 'https://matic-mumbai.chainstacklabs.com',
+    rpcUrl: 'https://polygon-mumbai-pokt.nodies.app',
   },
   {
     id: '0x61',
