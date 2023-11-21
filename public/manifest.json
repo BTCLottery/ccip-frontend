@@ -2,7 +2,7 @@
   "name": "Bitcoin Lottery",
   "short_name": "BTCLP",
   "description": "Bitcoin Lottery bridges the gap between players and game creators using the Blockchain to guarantee independent random drawings!",
-  "start_url": "https://www.btclottery.io/",
+  "start_url": "https://ccip.btclottery.io/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#491d7f",
