@@ -203,12 +203,12 @@ const testnetChains = [
     label: 'Base Testnet',
     rpcUrl: 'https://base-goerli.publicnode.com',
   },
-  {
-    id: 31337,
-    token: 'LOCAL',
-    label: 'Mainnet Fork',
-    rpcUrl: 'http://127.0.0.1:8545',
-  },
+  // {
+  //   id: 31337,
+  //   token: 'LOCAL',
+  //   label: 'Mainnet Fork',
+  //   rpcUrl: 'http://127.0.0.1:8545',
+  // },
 ];
 
 const liveChains = IS_LOCAL ? testnetChains : mainnetChains;

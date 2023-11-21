@@ -137,16 +137,16 @@ export const ETHEREUM_SEPOLIA = {
   tokens: LOCAL_TESTNET_TOKENS,
   explorer: 'https://goerli.etherscan.io/',
 };
-export const LOCAL_FORK = {
-  token: 'LOCAL',
-  label: 'Local Fork',
-  namespace: 'evm',
-  id: '0x7a69',
-  rpcUrl: 'http://127.0.0.1:8545',
-  img: ethereum,
-  tokens: LOCAL_TESTNET_TOKENS,
-  explorer: '',
-};
+// export const LOCAL_FORK = {
+//   token: 'LOCAL',
+//   label: 'Local Fork',
+//   namespace: 'evm',
+//   id: '0x7a69',
+//   rpcUrl: 'http://127.0.0.1:8545',
+//   img: ethereum,
+//   tokens: LOCAL_TESTNET_TOKENS,
+//   explorer: '',
+// };
 export const BASE_MAINNET = {
   token: 'BASE',
   label: 'Base',
@@ -223,7 +223,7 @@ export const ALL_NETWORKS = [
   ARBITRUM_TESTNET,
   ETHEREUM_MAINNET,
   ETHEREUM_SEPOLIA,
-  LOCAL_FORK,
+  // LOCAL_FORK,
 ];
 
 export const getNetworkImage = (chainId: string) => {
