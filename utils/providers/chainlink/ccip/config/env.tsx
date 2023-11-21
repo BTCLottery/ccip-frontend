@@ -48,10 +48,13 @@ const getProviderRpcUrl = (network: string) => {
       console.log(`Unknown network: ${network}`);
   }
 
-  if (!rpcUrl)
+  if (!rpcUrl) {
     console.log(
       `rpcUrl empty for network ${network} - check your environment variables`
     );
+
+    rpcUrl = process.env.NEXT_PUBLIC_POLYGON_MUMBAI_RPC_URL;
+  }
   return rpcUrl;
 };
 
