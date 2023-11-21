@@ -11,6 +11,7 @@ export default function MenuLogo(): ReactElement {
         <Image
           // could use chainlink svg here, but png has transparency
           src="/images/chainlink-png/Chainlink-Logo-White.png"
+          // src="/images/chainlink-png/Chainlink Logo Blue.png"
           className="pointer-events-none border-coolBackgroundShade1"
           alt="Chainlink Logo"
           width={238}
