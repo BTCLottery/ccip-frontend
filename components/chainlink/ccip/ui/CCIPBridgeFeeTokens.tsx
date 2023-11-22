@@ -77,7 +77,7 @@ export default function CCIPBridgeFeeTokens({
       </div>
 
       <div className={`w-full mx-auto flex-end`}>
-        <div className="absolute flex justify-end w-full max-w-[400px] h-auto rounded-lg">
+        <div className="absolute flex justify-end w-full max-w-[400px] h-auto rounded-lg -ml-[30px] sm:-ml-0">
           {openFeeTokenModal &&
             feeTokens &&
             Object.entries(feeTokens).map(([key, value]) => {

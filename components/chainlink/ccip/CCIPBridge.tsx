@@ -230,14 +230,14 @@ export default function CCIPBridge() {
         <h3 className="flex w-full items-center justify-center z-80 text-2xl my-1 text-chainlinkBiscay">
           The era of secure blockchain interoperability has arrived.
         </h3>
-        <div className={`flex w-full max-w-[480px] h-[400px] sm:h-[400px] mx-auto my-4`}>
+        <div className={`flex w-full max-w-[480px] h-auto mx-auto my-4`}>
           <div
-            className="bg-chainlinkBiscay w-full rounded-lg px-4"
+            className="bg-chainlinkBiscay w-full rounded-lg p-4"
             style={{
               boxShadow: '0px 9px 18px 2px rgba(0,0,0,0.71)',
             }}
           >
-            <div className="flex justify-between mt-4">
+            <div className="flex justify-between">
               <CCIPNetworkButton
                 setFromToNetwork={setFromNetwork}
                 fromTo="From"
@@ -250,9 +250,10 @@ export default function CCIPBridge() {
                   ccipRouterConfig.getRouterConfig(fromNetwork).networkStage
                 }
                 networkLanes={[]}
-                leftOrRight={'left'}
               />
-              <div className="flex items-center justify-center w-12 mt-4 md:text-3xl">{'<->'}</div>
+              <div className="flex items-center justify-center w-12 mt-4 md:text-3xl">
+                {'<->'}
+              </div>
               <CCIPNetworkButton
                 setFromToNetwork={setToNetwork}
                 fromTo="To"
@@ -267,7 +268,6 @@ export default function CCIPBridge() {
                 networkLanes={
                   ccipRouterConfig.getRouterConfig(fromNetwork).lanes
                 }
-                leftOrRight={'right'}
               />
             </div>
 

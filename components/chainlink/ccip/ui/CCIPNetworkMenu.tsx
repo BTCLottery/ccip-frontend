@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { useWindowSize } from 'usehooks-ts';
 import { IS_LOCAL } from '@/constants/networks';
 import CCIPProviderIcon from './CCIPProviderIcon';
 import ccipRouterConfig from '@/utils/providers/chainlink/ccip/config/router';
@@ -11,7 +12,6 @@ interface ICCIPNetworkMenuProps {
   setActiveModal: Dispatch<SetStateAction<boolean>>;
   setFromToNetwork: Dispatch<SetStateAction<string>>;
   networkLanes: string[];
-  leftOrRight: string;
 }
 
 const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
@@ -22,10 +22,11 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
   setFromToNetwork,
   setActiveModal,
   networkLanes,
-  leftOrRight
 }) => {
   // Render function to display networks
   const modalRef = useRef<HTMLDivElement>(null);
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     function handleOutsideClick(event: MouseEvent) {
@@ -88,14 +89,22 @@ const CCIPNetworkMenu: React.FC<ICCIPNetworkMenuProps> = ({
     ));
   };
 
+  const centerModal = () => {
+    if (width < 486) {
+      if (fromTo === 'From') return 'left-0';
+      if (fromTo === 'To') return 'right-0';
+    }
+    return '';
+  };
+
   return (
     <div
       ref={modalRef}
       className={`${
         activeModal ? '' : 'hidden'
-      } absolute bg-chainlinkMirage max-w-[400px] ${leftOrRight === 'left' ? 'ml-[111px]' : '-ml-[111px]'} mx-auto h-auto rounded-lg border-blue-50 border-2 z-10`}
+      } absolute bg-chainlinkMirage max-w-[400px] ${centerModal()}  mx-auto h-auto rounded-lg border-blue-50 border-2 z-10`}
     >
-      {/* sm:${leftOrRight === 'left' ? 'left-0' : 'right-0'}  */}
+      {/* sm:${fromTo === 'From' ? 'left-0' : 'right-0'}  */}
       <div className="flex flex-col justify-center">
         <div className="flex flex-col">
           {IS_LOCAL

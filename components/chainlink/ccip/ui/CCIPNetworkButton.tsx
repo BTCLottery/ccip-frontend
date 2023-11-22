@@ -10,7 +10,6 @@ interface ICCIPButtonProps {
   networkName: string;
   networkStage: string;
   networkLanes: string[];
-  leftOrRight: string;
 }
 
 const CCIPNetworkButton: React.FC<ICCIPButtonProps> = ({
@@ -21,7 +20,6 @@ const CCIPNetworkButton: React.FC<ICCIPButtonProps> = ({
   networkName,
   networkStage,
   networkLanes,
-  leftOrRight
 }) => {
   const [activeModal, setActiveModal] = useState<boolean>(false);
   // This function will be invoked when the button is clicked
@@ -57,7 +55,6 @@ const CCIPNetworkButton: React.FC<ICCIPButtonProps> = ({
         networkReference={
           fromTo === 'From' ? networkReferenceFrom : networkReferenceTo
         }
-        leftOrRight={leftOrRight}
         setFromToNetwork={setFromToNetwork}
         networkLanes={networkLanes}
       />
