@@ -251,7 +251,7 @@ export default function CCIPBridge() {
                 }
                 networkLanes={[]}
               />
-              <div className="flex items-center justify-center w-12 mt-4 md:text-3xl">
+              <div className="flex items-center justify-center w-12 md:text-xl">
                 {'<->'}
               </div>
               <CCIPNetworkButton
