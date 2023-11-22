@@ -36,12 +36,14 @@ import { IS_LOCAL } from '@/constants/networks';
 
 const metamask = metamaskModule({
   options: {
+    // checkInstallationImmediately: true,
+    // shouldShimWeb3: true,
     extensionOnly: false,
     i18nOptions: {
       enabled: true,
     },
     dappMetadata: {
-      name: 'Web3Onboard React Demo',
+      name: 'Chainlink CCIP',
     },
   },
 });
