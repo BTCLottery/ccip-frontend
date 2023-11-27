@@ -1,7 +1,8 @@
 import React from 'react';
-import Lottie from 'lottie-react';
 import CCIPBridge from '@/components/chainlink/ccip/CCIPBridge';
-import CCIPAnimation from '@/public/lottie/ccip.json';
+// import Head from 'next/head';
+// import Lottie from 'lottie-react';
+// import CCIPAnimation from '@/public/lottie/ccip.json';
 
 export default function ChainlinkCCIPBridge() {
   return (

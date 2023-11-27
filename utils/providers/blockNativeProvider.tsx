@@ -1,5 +1,5 @@
 import { init } from '@web3-onboard/react';
-import injectedModule from '@web3-onboard/injected-wallets';
+import injectedModule, { ProviderLabel } from '@web3-onboard/injected-wallets';
 import trezorModule from '@web3-onboard/trezor';
 import ledgerModule from '@web3-onboard/ledger';
 import walletConnectModule from '@web3-onboard/walletconnect';
@@ -31,20 +31,21 @@ import {
   SequenceOptions,
   TrezorOptions,
 } from '@/utils/types/wallet';
-import blocknativeIcon from '@/public/icons/BTCLP-White-Logo';
+// import blocknativeIcon from '@/public/icons/BTCLP-White-Logo';
+import linkLogo from '@/public/images/chainlink-svg/Chainlink-White-Logo';
 import { IS_LOCAL } from '@/constants/networks';
 
 const metamask = metamaskModule({
   options: {
-    // checkInstallationImmediately: true,
+    checkInstallationImmediately: true,
     // shouldShimWeb3: true,
     extensionOnly: false,
     i18nOptions: {
       enabled: true,
     },
-    dappMetadata: {
-      name: 'Chainlink CCIP',
-    },
+    // dappMetadata: {
+    //   name: 'Chainlink CCIP',
+    // },
   },
 });
 
@@ -88,7 +89,13 @@ const trezor = trezorModule({
   appUrl: 'https://www.btclottery.io',
 } as TrezorOptions);
 
-const injected = injectedModule();
+// const injected = injectedModule();
+const injected = injectedModule({
+  // display all unavailable injected wallets
+  // displayUnavailable: true,
+  // display specific unavailable wallets
+  displayUnavailable: [ProviderLabel.MetaMask, ProviderLabel.Trust],
+});
 const torus = torusModule();
 const keepkey = keepkeyModule();
 const tally = tallyModule();
@@ -107,9 +114,9 @@ const dcent = dcentModule();
 // const frontier = frontierModule();
 
 const wallets = [
-  metamask,
-  infinityWallet,
+  // metamask,
   injected,
+  infinityWallet,
   trust,
   walletConnect,
   // ledger,
@@ -242,11 +249,10 @@ const blockNativeProvider = init({
   wallets,
   chains,
   appMetadata: {
-    name: 'Bitcoin Lottery Protocol',
-    icon: blocknativeIcon,
-    logo: blocknativeIcon,
-    description:
-      'Bitcoin Lottery bridges the gap between players and game creators with trustless randomization games and generators.',
+    name: 'Chainlink CCIP',
+    icon: linkLogo,
+    logo: linkLogo,
+    description: 'Chainlink Cross-Chain Interoperability Protocol (CCIP)',
     recommendedInjectedWallets: [
       { name: 'MetaMask', url: 'https://metamask.io' },
       { name: 'Coinbase', url: 'https://wallet.coinbase.com/' },

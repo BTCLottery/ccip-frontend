@@ -7,12 +7,14 @@ export default function Document(): ReactElement {
   return (
     <Html prefix="og: http://ogp.me/ns#" lang="en">
       <Head>
+        {/* <title>Chainlink CCIP</title> */}
+        <meta property="og:title" content="Chainlink CCIP" key="title" />
         <meta
           name="description"
-          content="Bitcoin Lottery bridges the gap between players and game creators using the Blockchain to guarantee independent trustless drawings!"
+          content="The era of secure blockchain interoperability has arrived."
         />
         <meta name="referrer" content={referrer} />
-        <meta name="theme-color" content="#491d7f" />
+        <meta name="theme-color" content="#FFFFFF" />
         <meta name="fortmatic-site-verification" content="O24M5eQGcCrroriY" />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />

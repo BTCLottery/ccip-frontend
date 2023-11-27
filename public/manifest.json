@@ -1,12 +1,12 @@
 {
-  "name": "Bitcoin Lottery",
-  "short_name": "BTCLP",
-  "description": "Bitcoin Lottery bridges the gap between players and game creators using the Blockchain to guarantee independent random drawings!",
-  "start_url": "https://ccip.btclottery.io/",
+  "name": "Chainlink CCIP",
+  "short_name": "CCIP",
+  "description": "Chainlink Cross-Chain Interoperability Protocol (CCIP)",
+  "start_url": "https://ccip.randomizer.network/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#491d7f",
-  "theme_color": "#491d7f",
+  "background_color": "#1a2b6b",
+  "theme_color": "#1a2b6b",
   "icons": [
     {
       "src": "images/assets/logo-120px.png",

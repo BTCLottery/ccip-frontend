@@ -208,12 +208,12 @@ export default function CCIPBridge() {
       />
       <div className="absolute mx-auto w-full">
         <div className="product-header_tag-wrapper">
-            <Link
-                target="_blank"
-                href={`https://chain.link/cross-chain`}
-                rel="noopener noreferrer"
-                className='flex flex-row justify-center items-center gap-2 bg-zir rounded-lg my-2 py-1 w-28 mx-auto bg-chainlinkLavender'
-              >
+          <Link
+            target="_blank"
+            href={`https://chain.link/cross-chain`}
+            rel="noopener noreferrer"
+            className="flex flex-row justify-center items-center gap-2 bg-zir rounded-lg my-2 py-1 w-28 mx-auto bg-chainlinkLavender"
+          >
             <div className="flex">
               <Image
                 src="https://assets-global.website-files.com/5f6b7190899f41fb70882d08/648c8655667959beb00b4a76_icon-product_ccip.svg"
@@ -227,7 +227,7 @@ export default function CCIPBridge() {
             <h1 className="text-chainlinkMirage flex justify-center text-xl">
               CCIP
             </h1>
-            </Link>
+          </Link>
         </div>
         <h2 className="flex w-full items-center justify-center text-center z-80 text-4xl my-2 text-chainlinkBlue">
           Cross-chain by Chainlink
