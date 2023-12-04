@@ -3,6 +3,8 @@ import { BsClockHistory } from 'react-icons/bs';
 import Image from 'next/image';
 
 export type TOAST_TYPE =
+  | 'QUEUE_APPROVAL_WAITING'
+  | 'QUEUE_APPROVAL_SUCCESS'
   | 'QUEUE'
   | 'QUEUE_CLAIM'
   | 'CLEAR'
@@ -17,6 +19,23 @@ export type TOAST_TYPE =
 export const triggerToast = (type: TOAST_TYPE, extraContent?: string) => {
   if (type === 'CLEAR') {
     toast.dismiss();
+  }
+
+  if (type === 'QUEUE_APPROVAL_WAITING') {
+    toast.info(`Processing approval`, {
+      hideProgressBar: true,
+      // autoClose: 5000,
+      icon: () => <BsClockHistory style={{ width: '44px', height: '44px' }} />,
+    });
+  }
+
+  if (type === 'QUEUE_APPROVAL_SUCCESS') {
+    toast.dismiss();
+    toast.info(`Approval transaction successfully processed`, {
+      hideProgressBar: true,
+      autoClose: 5000,
+      icon: () => <BsClockHistory style={{ width: '44px', height: '44px' }} />,
+    });
   }
 
   if (type === 'QUEUE') {

@@ -58,9 +58,9 @@ const getChainlinkCCIPFee = async (
         extraArgs: '',
       };
 
-      if (!ethersProvider) return { fees, message };
-      const signer = ethersProvider.getSigner();
-      if (!signer) return { fees, message };
+      // if (!ethersProvider) return { fees, message };
+      // const signer = ethersProvider.getSigner();
+      // if (!signer) return { fees, message };
 
       // Get the router's address for the specified chain
       const sourceRouterAddress =
@@ -150,7 +150,7 @@ const getChainlinkCCIPFee = async (
             message,
           };
         } catch (error) {
-          console.log('error', error);
+          console.log('error fetchFee', error);
           return { fees, message };
         }
       };
